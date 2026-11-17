@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Markus Influencer OS v1.1.4 — Booking Database, quản lý KOL/KOC chuyên nghiệp." />
+  <title>Markus Influencer OS v1.1.4</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="markus-logo.png" />
+</head>
+<body>
+  <!-- Lớp phủ đăng nhập (prototype — không có backend thật) -->
+  <div class="login-overlay" id="login-overlay" hidden>
+    <div class="login-card">
+      <div class="login-brand"><img src="markus-logo.png" alt="Markus Agency" class="login-logo-img" /><strong>Markus <span>Influencer OS</span></strong><small>v1.1.4 — Booking Database</small></div>
+
+      <!-- 1.0.3: đăng nhập Google (Google Identity Services) -->
+      <div class="login-google">
+        <div id="google-signin"></div>
+        <small id="google-hint" class="muted">Đăng nhập bằng email @markus.agency được cấp quyền trong sheet Employees.</small>
+      </div>
+      <!-- 1.0.4: lỗi hiển thị chung cho cả Google lẫn demo → nằm ngoài form -->
+      <div id="login-error" class="login-error" hidden></div>
+
+      <!-- 1.0.4: đăng nhập demo chỉ dành cho dev — app.js chỉ bỏ `hidden` khi URL có ?demo=1 -->
+      <div id="demo-login" hidden>
+        <div class="login-divider"><span>hoặc đăng nhập demo</span></div>
+        <!-- 1.0.7 (item 5b): bỏ hoàn toàn mật khẩu — demo chỉ nhập email để xem đúng phân quyền -->
+        <form id="login-form">
+          <div class="form-field full"><label>Email</label><input type="email" id="login-email" placeholder="admin@example.com" autocomplete="email" /></div>
+          <button type="submit" class="btn btn-primary btn-block">Vào xem thử</button>
+        </form>
+        <div class="login-divider"><span>hoặc chọn vai demo</span></div>
+        <div id="login-quick"></div>
+        <p class="login-footer">Chế độ dev (?demo=1) — chỉ minh họa phân quyền, không có xác thực thật.</p>
+      </div>
+
+      <!-- R3: chân thẻ thương hiệu -->
+      <div class="login-sign"><span class="login-tagline">Do What Others Can't!</span><span class="login-copy">© Markus Agency</span></div>
+    </div>
+  </div>
+
+  <div id="app">
+    <!-- Thanh bên -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <a class="brand-logo-link" href="https://booking.markus.agency/" title="Về trang chủ Markus"><img src="markus-logo.png" alt="Markus Agency" class="brand-logo-img" /></a>
+        <div class="brand-text">
+          <strong>Markus OS</strong>
+          <small>Booking DB v1.1.4</small>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <a href="#/tong-quan" class="nav-item" data-view="tong-quan"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></span> Tổng quan</a>
+
+        <details class="nav-group" open>
+          <summary class="nav-item nav-group-head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></span> CSDL Booking<span class="nav-caret">›</span></summary>
+          <div class="nav-sub">
+            <a href="#/kol" class="nav-item" data-view="kol"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span> KOL / KOC</a>
+            <a href="#/du-lieu" class="nav-item" data-view="du-lieu"><span class="ico" aria-hidden="true">!</span> Chất lượng dữ liệu</a>
+            <a href="#/group" class="nav-item" data-view="group"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span> Community / Hotpage</a>
+          </div>
+        </details>
+
+        <a href="#/chien-dich" class="nav-item" data-view="chien-dich"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span> Chiến dịch</a>
+        <a href="#/pipeline" class="nav-item" data-view="pipeline"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span> Hợp đồng</a>
+        <a href="#/noi-dung" class="nav-item" data-view="noi-dung"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></span> Nội dung</a>
+        <a href="#/thanh-toan" class="nav-item" data-view="thanh-toan"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-1"/><path d="M16 12h5v4h-5a2 2 0 0 1 0-4z"/></svg></span> Thanh toán</a>
+        <a href="#/nguoi-dung" class="nav-item" data-view="nguoi-dung" data-perm="users"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span> Người dùng</a>
+        <a href="#/ai" class="nav-item" data-view="ai"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8z"/><path d="M18.5 14.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg></span> AI Workspace</a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <!-- 1.0.7 (item 7): Changelog mở bằng modal -->
+        <button type="button" class="side-changelog" data-action="changelog" title="Xem những gì đã thay đổi">🗒️ Changelog</button>
+        <div class="side-ver">Booking DB <b>v1.1.4</b></div>
+        <div class="side-copy">© 2026 Markus Agency</div>
+      </div>
+    </aside>
+
+    <!-- Nội dung chính -->
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Thu gọn / mở rộng menu" aria-expanded="true" title="Thu gọn menu"><span></span><span></span><span></span></button>
+        <div class="search-wrap">
+          <span class="search-ico">🔎</span>
+          <input type="search" id="global-search" placeholder="Tìm KOL, group, chiến dịch…" autocomplete="off" />
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="theme-toggle" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện">🌙</button>
+          <div class="user-chip">
+            <span class="avatar" id="user-avatar">MK</span>
+            <div class="user-meta">
+              <strong id="user-name">Markus Agency</strong>
+              <small id="user-role">Quản trị viên</small>
+            </div>
+            <!-- 1.0.13 (D2): mobile chỉ còn icon — chữ "Đăng xuất" vỡ 2 dòng khi topbar hẹp -->
+            <button class="btn btn-ghost btn-sm" id="btn-logout" title="Đăng xuất" aria-label="Đăng xuất" style="margin-left:6px"><span class="lo-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></span><span class="lo-txt">Đăng xuất</span></button>
+          </div>
+        </div>
+      </header>
+
+      <main class="content" id="content" tabindex="-1">
+        <!-- Các view được render bằng app.js -->
+      </main>
+    </div>
+  </div>
+
+  <!-- Lớp phủ modal -->
+  <div class="modal-overlay" id="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head">
+        <h3 id="modal-title">Tiêu đề</h3>
+        <button class="icon-btn" id="modal-close" aria-label="Đóng">✕</button>
+      </div>
+      <form id="modal-form" class="modal-body"></form>
+    </div>
+  </div>
+
+  <!-- Thông báo nhanh -->
+  <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+  <script src="production-shim.js"></script>
+</body>
+</html>

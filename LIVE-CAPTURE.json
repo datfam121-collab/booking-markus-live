@@ -1,0 +1,209 @@
+{
+  "captured": "2026-11-17",
+  "source": "https://booking.markus.agency/",
+  "method": "Authenticated cPanel Fileman source reads; public HTTP asset cross-check",
+  "sourceFiles": {
+    ".htaccess": {
+      "sha256": "1c992786c7d56b9a308cd5e48060d8df87a20c1c2566266e1077da1c90936e44",
+      "bytes": 1399
+    },
+    ".user.ini": {
+      "sha256": "0fa756079172e9b3a994895e2e0bcaac6fafed39e3ceb5bbbda67845283de610",
+      "bytes": 374
+    },
+    "activity.php": {
+      "sha256": "fc62c667aabbf68a608cd4d07d67930f6e34401c8611c2ca42f8e9f5d3e64f83",
+      "bytes": 693
+    },
+    "ai-chat.impl.php": {
+      "sha256": "68f7bd7e2821880d127451bf48b98fc98731d942ff5bcdb473a4afb9255bd88b",
+      "bytes": 3749
+    },
+    "ai-chat.php": {
+      "sha256": "493dce262b358b36a3f5fe8198df79c8038c17b3994b8b196ae7ce42b975c6ba",
+      "bytes": 262
+    },
+    "ai-fetch.impl.php": {
+      "sha256": "45ecd16854c6a951bb1bd3b1ef7a389585d4b634317deaad6266edeed6f8b692",
+      "bytes": 14129
+    },
+    "ai-fetch.php": {
+      "sha256": "0cd25856dd862dcaba5798ac622d5ea75780bde1ce55416153f506e28f2eddff",
+      "bytes": 271
+    },
+    "ai-history.php": {
+      "sha256": "ce5b3adc28fe608f53205a5d6987e01872673125eefb7f77a53b4a561d97b22a",
+      "bytes": 4015
+    },
+    "ping.php": {
+      "sha256": "341b3cf217bed3b83ad12f7a85e0eed09f2443c479ac6410e6bf0188b165f5d1",
+      "bytes": 638
+    },
+    "production-shim.js": {
+      "sha256": "8d31dc975a630579824bb543d4ff95abf918961dd572e804fc2b743713832d59",
+      "bytes": 27685
+    },
+    "styles.css": {
+      "sha256": "2968169cc9fee397c99887855ce475c6ac8368e25aa8003bcf9be34965f29581",
+      "bytes": 117572
+    },
+    "sync-data.php": {
+      "sha256": "7d01ac4d71bf1094b35f6e7ed89bb63808d28c3b540859fac1d327e1c2bbecf6",
+      "bytes": 550
+    },
+    "write-back.php": {
+      "sha256": "2eaa1309afb411b1a9a32c8ed6f74dcc64a79c57a2e0ff4abfb91eedc46a99dd",
+      "bytes": 7514
+    },
+    "_mk/.htaccess": {
+      "sha256": "3a96439fadccecefa3317a2290d591ecab7792b586f04c4746f96e033870ead0",
+      "bytes": 179
+    },
+    "_mk/aigate.php": {
+      "sha256": "122edea711ddbbad7b0acef83322ce32f28437f977100f24917378634e26dfb2",
+      "bytes": 2282
+    },
+    "_mk/auth.php": {
+      "sha256": "691977be2edab2d4ecc78bcdabaac81a8ded964341b7c4a6afbe973e20e01b8c",
+      "bytes": 9342
+    },
+    "_mk/core.php": {
+      "sha256": "6c6e3e9bfff1a6bbb27ab4622dbc6a2803eba06a63540cd007984d3fe0febf58",
+      "bytes": 5106
+    },
+    "_mk/gateway.php": {
+      "sha256": "8250b932de36b7367fd8321a1674cc3eab2b56571e50d9429c47f37c56c89be8",
+      "bytes": 7893
+    },
+    "_mk/ident.php": {
+      "sha256": "fd910931d775130a2ae0b08ea6321e12082c3f62c2ffc4d4deae25263428b8e8",
+      "bytes": 9732
+    },
+    "_mk/shared.php": {
+      "sha256": "410d69ebf11b35a52a48cfc33620556c83044fd88cea456c28955551888ccb26",
+      "bytes": 13881
+    },
+    "_mk/store.php": {
+      "sha256": "d047d264722d0dad4e13b8db4a0cafe7cea649f46ed9206e5c6aa540e64129c1",
+      "bytes": 2997
+    },
+    "hosting/.htaccess": {
+      "sha256": "dedf8d6a6c3287a73bdb2556b3a167829a5911d45dff46b5a28fd7759b64da43",
+      "bytes": 1084
+    },
+    "hosting/activity.php": {
+      "sha256": "5d0f25f8fd2d62c63d6c5034725bbc251717092f1ce77b21fec6fc998c25e3c3",
+      "bytes": 1484
+    },
+    "hosting/ai-chat.php": {
+      "sha256": "d1c4933b3853e882a3a24624efb9b0a83cca05f7c9db2aa463800cb224f4a41d",
+      "bytes": 3701
+    },
+    "hosting/ai-fetch.php": {
+      "sha256": "25e5aa231ea02045a624084d801e40d4029dcd92be60961181babe002d3554e0",
+      "bytes": 14072
+    },
+    "hosting/ai-history.php": {
+      "sha256": "df6d613808e554d8fe8d0a3bad381924251f542da99d7cd199e9e7b9e4b58d2e",
+      "bytes": 4515
+    },
+    "hosting/ai-parse.php": {
+      "sha256": "0a2851a1c0b0c976dc06cfdd71aaba5b8fc75b3be3325561e8fb6319863536b4",
+      "bytes": 11206
+    },
+    "hosting/google-auth.php": {
+      "sha256": "4c30b1c9710673bd2a80ee5b5a4ff97064b74fba4df50d794df6fe79b24c428f",
+      "bytes": 7313
+    },
+    "hosting/ping.php": {
+      "sha256": "9daa83088588b0d9315ae4562a87ad6be58f7f60a75e959602910b065c9e588b",
+      "bytes": 1765
+    },
+    "hosting/sync-data.php": {
+      "sha256": "40db1f9ab468659295205713f8e20f1a9b388d003aabf0b17018f91df62fad02",
+      "bytes": 5593
+    },
+    "hosting/write-back.php": {
+      "sha256": "698e0a860f7f89ee4c251a8674449548ab46dd999ea8eea29508e204a3e9901b",
+      "bytes": 11136
+    },
+    "ai-parse.impl.php": {
+      "sha256": "19ec04e9f5338e00cd1ce93cca4cc1e7a62ddf94f4ed71c2028c3803e0195fe4",
+      "bytes": 11254
+    },
+    "ai-parse.php": {
+      "sha256": "1bfc735948c7e3c6e3eac4de5fdf70a7960152485719bdd83052f5a64b1b07e9",
+      "bytes": 267
+    },
+    "api.php": {
+      "sha256": "da59787b22a491e3a4b32fcbfe287237e6787408a795a4bbc97d7a9a7ab8cc8c",
+      "bytes": 13231
+    },
+    "app.js": {
+      "sha256": "ca5575ec0b7ea90140b059fbcf9082bb6244b1b134e52994d43cd4ffc02b1e4f",
+      "bytes": 334001
+    },
+    "booking-rules.js": {
+      "sha256": "8a218158c5e11cd3159f95a7632ba2b0e14a7b2f0b863359b2c155e974723f40",
+      "bytes": 9016
+    },
+    "google-auth.php": {
+      "sha256": "c4ba7f1b6671934e6ab9994ad763d43ee67405390373cfa10f9e64d59ccb7524",
+      "bytes": 1229
+    },
+    "index.html": {
+      "sha256": "66ffd71690fb64ecf78e5d5dd7a5a49bcea7e45301d773ad8f0f55cb40662e7f",
+      "bytes": 9497
+    },
+    "php.ini": {
+      "sha256": "0fa756079172e9b3a994895e2e0bcaac6fafed39e3ceb5bbbda67845283de610",
+      "bytes": 374
+    }
+  },
+  "publicHttp": {
+    "index.html": {
+      "sha256": "66ffd71690fb64ecf78e5d5dd7a5a49bcea7e45301d773ad8f0f55cb40662e7f",
+      "bytes": 9497
+    },
+    "app.js": {
+      "sha256": "ca5575ec0b7ea90140b059fbcf9082bb6244b1b134e52994d43cd4ffc02b1e4f",
+      "bytes": 334001
+    },
+    "styles.css": {
+      "sha256": "2968169cc9fee397c99887855ce475c6ac8368e25aa8003bcf9be34965f29581",
+      "bytes": 117572
+    },
+    "production-shim.js": {
+      "sha256": "8d31dc975a630579824bb543d4ff95abf918961dd572e804fc2b743713832d59",
+      "bytes": 27685
+    },
+    "booking-rules.js": {
+      "sha256": "8a218158c5e11cd3159f95a7632ba2b0e14a7b2f0b863359b2c155e974723f40",
+      "bytes": 9016
+    },
+    "markus-logo.png": {
+      "sha256": "951706cf4d8958034a6191ab3e1ae162afaf3e8b56c8bb7baebeaeff3d4f7376",
+      "bytes": 321813
+    }
+  },
+  "sanitizedFiles": [
+    ".htaccess",
+    ".user.ini",
+    "_mk/core.php",
+    "hosting/google-auth.php",
+    "hosting/sync-data.php",
+    "hosting/write-back.php",
+    "app.js",
+    "index.html",
+    "php.ini"
+  ],
+  "excluded": [
+    "credentials",
+    "runtime state/logs/caches",
+    "stage folders",
+    "old release ZIPs"
+  ],
+  "note": "Original hashes; public/ is sanitized, not a full disaster recovery backup.",
+  "htmlCapture": "index.html exact public HTTP source (cPanel HTML read transforms charset)",
+  "additionalSanitization": "Removed entire embedded demo seedData body from app.js; no runtime logic changes beyond empty starter datasets."
+}

@@ -1,0 +1,38 @@
+# Markus Influencer OS — chặn tải trực tiếp file cấu hình/bí mật.
+# Đặt cùng thư mục với các file .php (nơi upload index.html / app.js / styles.css).
+# .php / .html / .js / .css vẫn chạy bình thường — chỉ chặn .json / .txt và 2 file secret.
+
+# Không liệt kê thư mục
+Options -Indexes
+
+<FilesMatch "\.(json|txt|log|ini|bak|sql|yml|yaml)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Chặn theo tên, kể cả khi bị đổi phần mở rộng (service-account.json.bak…)
+<FilesMatch "^(service-account|deepseek-key)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# File ẩn (.htaccess, .env, .git…)
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
